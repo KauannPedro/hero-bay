@@ -1,0 +1,19 @@
+.topo {
+  background-color: #407ccd;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topo nav a {
+  color: white;
+  margin-left: 16px;
+  text-decoration: none;
+}
+
+.conteudo {
+  padding: 24px;
+  text-align: center;
+}
