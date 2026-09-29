@@ -1,13 +1,20 @@
 <header class="topo">
   <h1>HERO BAY</h1>
-  <nav>
+  <input class="busca" type="text" placeholder="O que você procura hoje?" />
+  <nav class="busca">
     <a routerLink="/">Início</a>
     <a routerLink="/sobre">Sobre</a>
     <a routerLink="/contato">Contato</a>
     <a routerLink="/login">Login</a>
+    <a routerLink="/carrinho">Carrinho</a>
   </nav>
 </header>
 
+<nav class="menu">
+  @for (item of menu; track item) {
+    <a>{{ item }}</a>
+  }
+</nav>
 <main class="conteudo">
   <h2>Bem-vindo!</h2>
   <p>Esta é a tela inicial.</p>
