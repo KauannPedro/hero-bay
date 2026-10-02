@@ -1,15 +1,26 @@
-.topo {
-  background-color: #407ccd;
-  color: white;
+header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--borda);
   padding: 16px 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
-.topo nav a {
-  color: white;
-  margin-left: 16px;
+.logo {
+  color: var(--texto);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+nav a {
+  color: var(--texto-suave);
   text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
 }
 
+nav a:hover,
+nav a.active {
+  color: var(--roxo-claro);
+}
