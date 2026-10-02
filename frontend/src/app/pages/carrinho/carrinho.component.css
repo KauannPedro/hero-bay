@@ -15,7 +15,6 @@ h1 { font-size: 28px; margin-bottom: 24px; }
 
 .lista { display: flex; flex-direction: column; gap: 12px; }
 
-/* card de cada item */
 .item {
   display: grid;
   grid-template-columns: 96px 1fr auto auto auto;
@@ -42,7 +41,6 @@ h1 { font-size: 28px; margin-bottom: 24px; }
 .preco { color: var(--roxo-claro); font-weight: 700; }
 .subtotal { min-width: 100px; text-align: right; }
 
-/* controle de quantidade */
 .qtd {
   display: flex;
   align-items: center;
@@ -70,7 +68,6 @@ h1 { font-size: 28px; margin-bottom: 24px; }
 }
 .remover:hover { color: #ff6b6b; }
 
-/* resumo */
 .resumo {
   background: var(--card);
   border: 1px solid var(--borda);
@@ -92,7 +89,6 @@ h1 { font-size: 28px; margin-bottom: 24px; }
   padding-top: 12px;
 }
 
-/* botões (iguais aos da home) */
 .btn {
   display: block;
   text-align: center;
@@ -121,7 +117,6 @@ h1 { font-size: 28px; margin-bottom: 24px; }
 }
 .vazio .btn { display: inline-block; padding: 12px 24px; }
 
-/* celular */
 @media (max-width: 800px) {
   .layout { grid-template-columns: 1fr; }
   .item { grid-template-columns: 72px 1fr; }

@@ -24,3 +24,7 @@ nav a:hover,
 nav a.active {
   color: var(--roxo-claro);
 }
+.logo-img {
+  height: 1.4em;
+  width: auto;
+}
