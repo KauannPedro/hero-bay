@@ -1,0 +1,74 @@
+
+.sobre {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.texto p {
+  color: var(--texto-suave);
+  line-height: 1.7;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.texto .nota {
+  color: var(--texto);
+  font-size: 13px;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 40px;
+  line-height: 1.2;
+  max-width: 760px;
+  margin: 64px auto;
+}
+
+.titulo span {
+  color: var(--roxo-claro);
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.numero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 28px 16px;
+}
+
+.icone svg {
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke: var(--roxo);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 8px;
+}
+
+.numero strong {
+  font-size: 18px;
+}
+
+.numero span {
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .titulo { font-size: 28px; margin: 40px auto; }
+  .numeros { grid-template-columns: repeat(2, 1fr); }
+}
+
