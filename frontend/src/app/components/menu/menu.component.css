@@ -1,15 +1,146 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
 .topo {
-  background-color: #407ccd;
-  color: white;
-  padding: 16px 24px;
+  width: 100%;
+  height: 11vh;
+  background-color: #252644;
+  display: flex;
+  flex-direction: column;
+  border: 0px 0px 0px 10px solid #535d88;
+}
+
+.topo .top {
+  width: 100%;
+  height: 70%;
+  padding: 18px 55px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .part-esq {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    a {
+      width: 12%;
+      gap: 7px;
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      color: white;
+      font-family: 'plus-jakarta-bold', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+
+      img {
+        width: 30%;
+      }
+    }
+
+    .busca {
+      width: 60%;
+      height: 100%;
+      border: none;
+      padding: 0px 25px;
+      border-radius: 5px;
+      background-color: #1A1D2E;
+      color: #dbdbdb;
+      font-size: 85%;
+      font-weight: 500;
+      font-family: 'plus-jakarta-medium', sans-serif;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #A9A9A9;
+        font-family: 'plus-jakarta-medium', sans-serif;
+        opacity: 100%;
+        font-style: oblique;
+        font-size: 90%;
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    a {
+      font-size: 13px;
+      color: white;
+      font-family: 'plus-jakarta-medium', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: #c7c7c7;
+      transition: 0.2s;
+      text-decoration: none;
+
+      img {
+        width: 80%;
+        transition: 0.2s;
+
+        &:hover {
+          filter: brightness(0.8);
+        }
+      }
+
+      &:hover {
+        color: #818181;
+      }
+    }
+  }
 }
 
-.topo nav a {
-  color: white;
-  margin-left: 16px;
-  text-decoration: none;
+.linha {
+  width: 100%;
+  border: 1px solid #2A2D45;
 }
 
+.menu {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  padding: 0px 60px;
+
+  nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+
+    a {
+      color: white;
+      font-family: 'plus-jakarta-regular', sans-serif;
+      cursor: pointer;
+      color: #c7c7c7;
+      transition: 0.1s;
+      text-decoration: none;
+      font-size: 12px;
+
+      img {
+        width: 85%;
+        transition: 0.2s;
+
+        &:hover {
+          filter: brightness(0.8);
+        }
+      }
+
+      &:hover {
+        color: #818181;
+      }
+    }
+  }
+}
