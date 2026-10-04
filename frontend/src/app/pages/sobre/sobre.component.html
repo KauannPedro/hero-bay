@@ -1,1 +1,43 @@
-<p>sobre works!</p>
+<main class="sobre">
+  <!-- Texto de apresentação -->
+  <section class="texto">
+    <p>
+      O Hero Bay é uma loja virtual de tecnologia e games criada como projeto
+      do curso do Senac. Aqui você encontra noiz vai decidir ainda qq c vai encontra tendeu.
+    </p>
+    <p>
+      Nosso objetivo é ajudar quem está montando o primeiro PC ou o setup
+      dos sonhos, com preço justo, entrega rápida e atendimento de verdade.
+    </p>
+    <p class="nota">*Projeto acadêmico, sem fins comerciais.</p>
+  </section>
+
+  <h1 class="titulo">
+    Desde 2026, a loja de <span>tecnologia e games</span> feita para quem ama setup
+  </h1>
+
+  <section class="numeros">
+    @for (n of numeros; track n.legenda) {
+      <div class="numero">
+        <div class="icone">
+          @switch (n.icone) {
+            @case ('caixa') {
+              <svg viewBox="0 0 24 24"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3.3 7.5L12 12l8.7-4.5M12 12v9"/></svg>
+            }
+            @case ('pin') {
+              <svg viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            }
+            @case ('cliente') {
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+            }
+            @case ('pedido') {
+              <svg viewBox="0 0 24 24"><path d="M6 6h15l-1.5 9h-12L6 6zm0 0L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+            }
+          }
+        </div>
+        <strong>{{ n.destaque }}</strong>
+        <span>{{ n.legenda }}</span>
+      </div>
+    }
+  </section>
+</main>

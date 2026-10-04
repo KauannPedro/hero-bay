@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 340" fill="none">
+  <!-- MONITOR -->
+  <rect x="5" y="5" width="360" height="225" rx="14" fill="#181c2b" stroke="#2a324a" stroke-width="2.5"/>
+  <rect x="25" y="22" width="200" height="9" rx="4.5" fill="#8B5CF6"/>
+  <rect x="25" y="46" width="270" height="8" rx="4" fill="#293148"/>
+  <rect x="25" y="66" width="150" height="8" rx="4" fill="#293148"/>
+  <rect x="25" y="86" width="230" height="8" rx="4" fill="#293148"/>
+  
+  <!-- BASE DO MONITOR -->
+  <rect x="160" y="230" width="50" height="40" fill="#293148"/>
+  <rect x="95" y="270" width="180" height="12" rx="6" fill="#293148"/>
+
+  <!-- GABINETE -->
+  <rect x="380" y="50" width="115" height="205" rx="14" fill="#181c2b" stroke="#2a324a" stroke-width="2.5"/>
+  <circle cx="437" cy="110" r="28" stroke="#8B5CF6" stroke-width="3"/>
+  <circle cx="437" cy="190" r="28" stroke="#8B5CF6" stroke-width="3"/>
+
+  <!-- TECLADO -->
+  <rect x="20" y="295" width="310" height="38" rx="8" fill="#181c2b" stroke="#2a324a" stroke-width="2.5"/>
+
+  <!-- MOUSE -->
+  <rect x="345" y="295" width="28" height="38" rx="14" fill="#181c2b" stroke="#2a324a" stroke-width="2.5"/>
+</svg>
