@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  imports: [],
   selector: 'app-contato',
-  styleUrl: './contato.component.css',
-  templateUrl: './contato.component.html'
+  standalone: true,
+  imports: [],
+  templateUrl: './contato.component.html',
+  styleUrl: './contato.component.css'
 })
-export class ContatoComponent {}
+export class ContatoComponent {
+
+}
