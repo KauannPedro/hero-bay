@@ -1,0 +1,39 @@
+<div class="content-container">
+  <form class="login-card">
+    <h2>Login</h2>
+
+    <div class="form-group">
+      <label for="email">Login</label>
+      <input 
+        class="input-simples" 
+        id="email" 
+        name="email" 
+        type="email" 
+        placeholder="Digite seu email"
+        (keyup)="validarFormulario()"
+        [(ngModel)]="login"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="input-senha">Senha</label>
+      <input 
+        class="input-simples" 
+        id="input-senha" 
+        name="input-senha" 
+        type="password" 
+        placeholder="Digite sua senha"
+        (keyup)="validarFormulario()"
+        [(ngModel)]="senha"
+      />
+    </div>
+
+    <button 
+      class="input-submeter" 
+      [disabled]="botaoDesabilitado" 
+      (click)="fazerLogin()"
+    >
+      Confirmar
+    </button>
+  </form>
+</div>
