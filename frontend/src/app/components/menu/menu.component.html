@@ -1,16 +1,28 @@
 <header class="topo">
-  <h1>HERO BAY</h1>
-  <nav>
-    <a routerLink="/">Início</a>
-    <a routerLink="/sobre">Sobre</a>
-    <a routerLink="/contato">Contato</a>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/carrinho">Carrinho</a>
-  </nav>
-</header>
+  <div class="top">
+    <div class="part-esq">
+      <a routerLink="/"><img src="images/logo-hero-bay.png">Hero bay</a>
+      <input class="busca" type="text" placeholder="Buscar placa de videos, teclados, monitores e muito mais...">
+    </div>
+    <nav>
+      <a routerLink="/login">Entrar</a>
+      <a routerLink="/sobre">Sobre</a>
+      <a routerLink="/carrinho"><img src="images/carrinho.svg" alt="Carrinho"></a>
+    </nav>
+  </div>
 
-<main class="conteudo">
-  <h2>Bem-vindo!</h2>
-  <p>Esta é a tela inicial.</p>
-  <button>Saiba mais</button>
-</main>
+  <div class="linha"></div>
+
+  <div class="menu">
+    <nav>
+      <a routerLink="/">Todos os Produtos</a>
+      <a routerLink="/categorias/monitores">Hardware</a>
+      <a routerLink="/categorias/perifericos">Periféricos</a>
+      <a routerLink="/categorias/monitores">Monitores</a>
+      <a routerLink="/categorias/notebooks">Notebooks</a>
+      <a routerLink="/categorias/mouses">Gamer</a>
+      <a routerLink="/categorias/ofertas">Ofertas</a>
+    </nav>
+  </div>
+  <div class="linha"></div>
+</header>
