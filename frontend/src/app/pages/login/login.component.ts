@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,9 +11,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class LoginComponent {
 
-  botaoDesabilitado: boolean = true;
-  login: string = '';
+  login: string = '';  
   senha: string = '';
+  botaoDesabilitado: boolean = true; 
+  
+  constructor(private router: Router) {}
 
   validarFormulario() {
     if (this.login.trim() !== '' && this.senha.trim() !== '') {
@@ -23,11 +26,11 @@ export class LoginComponent {
   }
 
   fazerLogin() {
-    if (this.login === "admin@email.com" && this.senha === "123") {
-      alert("Bem-vindo(a) admin!");
+    if (this.login && this.senha) {
+      console.log('Login realizado com sucesso!');
+      this.router.navigate(['/dashboard']);
     } else {
-      alert("Credenciais inválidas!");
+      console.log('Por favor, preencha todos os campos.');
     }
   }
-
 }
