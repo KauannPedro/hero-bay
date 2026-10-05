@@ -31,6 +31,7 @@ export class RegistrarComponent {
     const usuarios: Usuario[] = salvos ? JSON.parse(salvos) : [];
     const existe = usuarios.some(verif => verif.email === this.login);
 
+
     if(existe){
       alert('Este e-mail já está cadastrado!');
       return;

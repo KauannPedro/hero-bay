@@ -88,8 +88,28 @@
         }
 
         @if (secaoAtiva === 'clientes') {
-        <h2>Clientes</h2>
-        <p>Os clientes cadastrados aparecerão aqui.</p>
+            <h2>Clientes</h2>
+            @if( usuarios.length === 0){
+                
+                <p>Os clientes cadastrados aparecerão aqui.</p>
+            } @else {
+            <table class="tabela-produtos">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (usuario of usuarios; track usuario.email) {
+                    <tr>
+                        <td>{{ usuario.nome }}</td>
+                        <td>{{ usuario.email }}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            }
         }
 
         @if (secaoAtiva === 'logs') {
