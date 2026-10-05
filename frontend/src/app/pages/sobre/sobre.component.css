@@ -1,6 +1,7 @@
 
 .sobre {
   max-width: 960px;
+  min-height: 100%;
   margin: 0 auto;
   padding: 48px 24px 80px;
 }
