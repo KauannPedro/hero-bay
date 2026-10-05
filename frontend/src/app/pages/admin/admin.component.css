@@ -1,0 +1,184 @@
+.painel-admin {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: var(--texto);
+}
+
+.cabecalho-admin {
+    margin-bottom: 28px;
+}
+
+.cabecalho-admin h1 {
+    margin-bottom: 8px;
+    font-family: 'plus-jakarta-bold', sans-serif;
+    font-size: 28px;
+}
+
+.cabecalho-admin p {
+    color: var(--texto-suave);
+    line-height: 1.6;
+}
+
+.menu-admin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.menu-admin button {
+    padding: 12px 24px;
+    background-color: var(--card);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.menu-admin button:hover {
+    background-color: var(--card-2);
+    border-color: var(--roxo-claro);
+}
+
+.menu-admin button.ativo {
+    background-color: var(--roxo);
+    border-color: var(--roxo);
+    color: #ffffff;
+}
+
+.menu-admin button:focus-visible {
+    outline: 2px solid var(--roxo-claro);
+    outline-offset: 4px;
+}
+
+.secao-admin {
+    padding: 24px;
+    background-color: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+}
+
+.secao-admin h2 {
+    margin-bottom: 8px;
+}
+
+.secao-admin p {
+    color: var(--texto-suave);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.tabela-container {
+    overflow-x: auto;
+}
+
+.tabela-produtos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-produtos caption {
+    text-align: left;
+    font-weight: 600;
+    padding-bottom: 12px;
+}
+
+.tabela-produtos th,
+.tabela-produtos td {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--borda);
+}
+
+.tabela-produtos th {
+    background-color: var(--card-2);
+    color: var(--roxo-claro);
+    font-size: 14px;
+}
+
+.tabela-produtos tbody tr:hover {
+    background-color: var(--card-2);
+}
+
+.tabela-produtos tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.form-produto {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    background-color: var(--bg);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+}
+
+.campo-produto {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.campo-produto label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.campo-produto input {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--card);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    font: inherit;
+}
+
+.campo-produto input:focus {
+    outline: 2px solid var(--roxo-claro);
+    outline-offset: 2px;
+}
+
+.form-produto .mensagem-erro {
+    grid-column: 1 / -1;
+    color: #fca5a5;
+    margin: 0;
+}
+
+.botao-adicionar {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 12px 20px;
+    background-color: var(--roxo);
+    color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.botao-adicionar:hover {
+    border-color: var(--roxo-claro);
+    background-color: var(--card-2);
+}
+
+.botao-adicionar:focus-visible {
+    outline: 2px solid var(--roxo-claro);
+    outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .form-produto {
+        grid-template-columns: 1fr;
+    }
+}
