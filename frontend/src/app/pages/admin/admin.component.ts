@@ -11,6 +11,7 @@ import { Produto } from '../../models/produto';
 })
 export class AdminComponent {
   secaoAtiva: 'produtos' | 'clientes' | 'logs' = 'produtos';
+  logs: { data: string; acao: string; produto: string }[] = [];
 
   novoNome: string = '';
   novoPreco: number | null = null;
@@ -82,6 +83,12 @@ export class AdminComponent {
       descricao: '',
       imagem: '',
       categoria: ''
+    });
+
+    this.logs.unshift({
+      data: new Date().toLocaleString('pt-BR'),
+      acao: 'Produto cadastrado',
+      produto: nome
     });
 
     this.novoNome = '';

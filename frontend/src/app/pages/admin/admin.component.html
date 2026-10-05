@@ -93,8 +93,36 @@
         }
 
         @if (secaoAtiva === 'logs') {
-        <h2>Logs</h2>
-        <p>O histórico de alterações aparecerá aqui.</p>
+        <h2>Histórico de atividades</h2>
+        <p>Cadastros realizados enquanto este painel está aberto.</p>
+
+        @if (logs.length === 0) {
+        <p>Nenhuma atividade registrada ainda.</p>
+        } @else {
+        <div class="tabela-container">
+            <table class="tabela-produtos">
+                <caption>Registros de cadastro</caption>
+
+                <thead>
+                    <tr>
+                        <th scope="col">Data e hora</th>
+                        <th scope="col">Ação</th>
+                        <th scope="col">Produto</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (log of logs; track log) {
+                    <tr>
+                        <td>{{ log.data }}</td>
+                        <td>{{ log.acao }}</td>
+                        <td>{{ log.produto }}</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        }
         }
     </section>
 </div>
