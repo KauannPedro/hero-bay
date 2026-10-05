@@ -1,1 +1,44 @@
-<p>carrinho works!</p>
+<main class="container">
+  <h1>Meu carrinho</h1>
+
+  <div class="layout">
+    <section class="lista">
+      <article class="item">
+        <div class="item-img">imagem do produto</div>
+
+        <div class="item-info">
+          <h3>Nome do produto</h3>
+          <span class="preco">R$ 0,00</span>
+        </div>
+
+        <div class="qtd">
+          <button aria-label="Diminuir">−</button>
+          <span>1</span>
+          <button aria-label="Aumentar">+</button>
+        </div>
+
+        <strong class="subtotal">R$ 0,00</strong>
+
+        <button class="remover">Remover</button>
+      </article>
+    </section>
+
+    <aside class="resumo">
+      <h2>Resumo</h2>
+      <div class="linha">
+        <span>Subtotal</span>
+        <span>R$ 0,00</span>
+      </div>
+      <div class="linha">
+        <span>Frete</span>
+        <span>R$ 0,00</span>
+      </div>
+      <div class="linha total">
+        <span>Total</span>
+        <span>R$ 0,00</span>
+      </div>
+      <button class="btn btn-primario">Finalizar compra</button>
+      <a routerLink="/" class="btn btn-secundario">Continuar comprando</a>
+    </aside>
+  </div>
+</main>

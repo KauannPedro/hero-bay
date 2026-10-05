@@ -4,11 +4,22 @@
       <a routerLink="/"><img src="images/logo-hero-bay.png">Hero bay</a>
       <input class="busca" type="text" placeholder="Buscar placa de videos, teclados, monitores e muito mais...">
     </div>
+    @if (!usuario()) {
     <nav>
       <a routerLink="/login">Entrar</a>
+      <a routerLink="/contato">Contato</a>
       <a routerLink="/sobre">Sobre</a>
-      <a routerLink="/carrinho"><img src="images/carrinho.svg" alt="Carrinho"></a>
     </nav>
+    } @else if (usuario()) {
+    <nav>
+      <span>Bem-vindo(a) {{usuario()}}</span>
+      <a routerLink="/carrinho"><img src="images/carrinho.svg" alt="Carrinho"></a>
+      <a routerLink="/contato">Contato</a>
+      <a routerLink="/sobre">Sobre</a>
+      <a (click)="logout()">Sair</a>
+    </nav>
+    }
+
   </div>
 
   <div class="linha"></div>

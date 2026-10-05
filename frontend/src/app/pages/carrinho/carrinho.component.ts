@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
   selector: 'app-carrinho',
+  imports: [RouterLink],
+  templateUrl: './carrinho.component.html',
   styleUrl: './carrinho.component.css',
-  templateUrl: './carrinho.component.html'
 })
-export class CarrinhoComponent {}
+export class CarrinhoComponent {
+  
+}
+
