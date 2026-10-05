@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { verify } from 'crypto';
-// import { Usuario } from './'; quando o gustavo upar o codigo, terminar de importar o models usuario
+import { Usuario } from '../../models/usuario'; 
 
 
 @Component({
@@ -31,8 +31,8 @@ export class LoginComponent {
   fazerLogin() {
     const salvos = localStorage.getItem('usuarios');
     const usuarios = salvos ? JSON.parse(salvos) : [];
-    //                                trocar ANY por Usuario
-    const encontrado = usuarios.find((verif: any) => verif.email === this.login && verif.senha === this.senha);
+    
+    const encontrado = usuarios.find((verif: Usuario) => verif.email === this.login && verif.senha === this.senha);
 
     if (this.login === "admin@email.com" && this.senha === "123") {
       alert("Bem-vindo(a) admin!");
