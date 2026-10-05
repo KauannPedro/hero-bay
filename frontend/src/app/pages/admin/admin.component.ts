@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Produto } from '../../models/produto';
+import { Usuario } from '../../models/usuario';
 
 @Component({
   imports: [CurrencyPipe, FormsModule],
@@ -9,7 +10,15 @@ import { Produto } from '../../models/produto';
   styleUrl: './admin.component.css',
   templateUrl: './admin.component.html'
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit{
+
+  usuarios: Usuario[] = [];
+  
+  ngOnInit() {
+    const salvos = localStorage.getItem('usuarios');
+    this.usuarios = salvos ? JSON.parse(salvos) : [];
+  }
+
   secaoAtiva: 'produtos' | 'clientes' | 'logs' = 'produtos';
   logs: { data: string; acao: string; produto: string }[] = [];
 

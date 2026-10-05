@@ -26,7 +26,8 @@
     gap: 24px;
     flex: 1;
 
-    a {
+    a,
+    span {
       width: 12%;
       gap: 7px;
       display: flex;
@@ -35,12 +36,19 @@
       font-size: 20px;
       color: white;
       font-family: 'plus-jakarta-bold', sans-serif;
-      cursor: pointer;
       text-decoration: none;
 
       img {
         width: 45px;
         height: auto;
+      }
+    }
+
+    .set-cursor {
+      cursor: pointer;
+
+      &:hover {
+        color: #8c52ff;
       }
     }
 
@@ -87,7 +95,7 @@
       color: #c7c7c7;
       transition: 0.2s;
       text-decoration: none;
-      
+
     }
 
     a {
@@ -106,12 +114,12 @@
         transition: 0.2s;
 
         &:hover {
-          filter: brightness(0.8);
+          color: #8c52ff;
         }
       }
 
       &:hover {
-        color: #818181;
+        color: #8c52ff;
       }
     }
   }
@@ -128,6 +136,16 @@
   display: flex;
   align-items: center;
   padding: 0 clamp(16px, 3vw, 60px);
+
+  .principal {
+    font-family: 'plus-jakarta-regular', sans-serif;
+    font-size: 12px;
+    span {
+      color: #8c52ff;
+      
+    }
+
+  }
 
   nav {
     width: 100%;
