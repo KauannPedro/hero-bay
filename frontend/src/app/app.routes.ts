@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { Home } from './pages/home/home';
-import { Login } from './pages/login/login';
-import { Contato } from './pages/contato/contato';
-import { Sobre } from './pages/sobre/sobre';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ContatoComponent } from './pages/contato/contato.component'; /*Inserção das importações das paginas component*/
+import { SobreComponent } from './pages/sobre/sobre.component';
 
 export const routes: Routes = [
-    { path: '', component: Home },
-    { path: 'login', component: Login },
-    { path: 'contato', component: Contato },
-    { path: 'sobre', component: Sobre },
+    { path: '', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'contato', component: ContatoComponent  },
+    { path: 'sobre', component: SobreComponent },
 ];
