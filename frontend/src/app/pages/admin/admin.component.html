@@ -1,1 +1,100 @@
-<p>admin works!</p>
+<div class="painel-admin">
+    <header class="cabecalho-admin">
+        <h1>Administrativo</h1>
+        <p>Gerencie os usuários e as configurações do sistema.</p>
+    </header>
+
+    <nav class="menu-admin" aria-label="Seções administrativas">
+        <button type="button" (click)="secaoAtiva = 'produtos'" [class.ativo]="secaoAtiva === 'produtos'"
+            [attr.aria-pressed]="secaoAtiva === 'produtos'">
+            Produtos
+        </button>
+
+        <button type="button" (click)="secaoAtiva = 'clientes'" [class.ativo]="secaoAtiva === 'clientes'"
+            [attr.aria-pressed]="secaoAtiva === 'clientes'">
+            Clientes
+        </button>
+
+        <button type="button" (click)="secaoAtiva = 'logs'" [class.ativo]="secaoAtiva === 'logs'"
+            [attr.aria-pressed]="secaoAtiva === 'logs'">
+            Logs
+        </button>
+    </nav>
+
+    <section class="secao-admin">
+        @if (secaoAtiva === 'produtos') {
+        <h2>Produtos</h2>
+        <p>Os produtos cadastrados aparecerão aqui.</p>
+
+        <form class="form-produto" (ngSubmit)="adicionarProduto()">
+            <div class="campo-produto">
+                <label for="produto-nome">Nome do produto</label>
+
+                <input id="produto-nome" name="nome" type="text" [(ngModel)]="novoNome"
+                    placeholder="Ex.: Teclado mecânico" required>
+            </div>
+
+            <div class="campo-produto">
+                <label for="produto-preco">Preço (R$)</label>
+
+                <input id="produto-preco" name="preco" type="number" [(ngModel)]="novoPreco" min="0.01" step="0.01"
+                    placeholder="Ex.: 249,90" required>
+            </div>
+
+            <div class="campo-produto">
+                <label for="produto-estoque">Estoque</label>
+
+                <input id="produto-estoque" name="estoque" type="number" [(ngModel)]="novoEstoque" min="0" step="1"
+                    placeholder="Ex.: 10" required>
+            </div>
+
+            @if (mensagemErro !== '') {
+            <p class="mensagem-erro" role="alert">
+                {{ mensagemErro }}
+            </p>
+            }
+
+            <button class="botao-adicionar" type="submit">
+                Adicionar produto
+            </button>
+        </form>
+
+        <div class="tabela-container">
+            <table class="tabela-produtos">
+                <caption>Produtos</caption>
+
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Estoque</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (produto of produtos; track produto.id) {
+                    <tr>
+                        <td>{{ produto.id }}</td>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{ produto.preco | currency:'BRL' }}</td>
+                        <td>{{ produto.estoque }}</td>
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+        }
+
+        @if (secaoAtiva === 'clientes') {
+        <h2>Clientes</h2>
+        <p>Os clientes cadastrados aparecerão aqui.</p>
+        }
+
+        @if (secaoAtiva === 'logs') {
+        <h2>Logs</h2>
+        <p>O histórico de alterações aparecerá aqui.</p>
+        }
+    </section>
+</div>
