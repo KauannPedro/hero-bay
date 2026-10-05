@@ -1,44 +1,55 @@
 <main class="container">
   <h1>Meu carrinho</h1>
 
-  <div class="layout">
-    <section class="lista">
-      <article class="item">
-        <div class="item-img">imagem do produto</div>
+  @if (carrinho.itens().length === 0) {
+    <div class="vazio">
+      <p>Seu carrinho está vazio.</p>
+      <a routerLink="/" class="btn btn-primario">Ver ofertas</a>
+    </div>
+  } @else {
+    <div class="layout">
+      <section class="lista">
+        @for (item of carrinho.itens(); track item.id) {
+          <article class="item">
+            <div class="item-img">imagem do produto</div>
 
-        <div class="item-info">
-          <h3>Nome do produto</h3>
-          <span class="preco">R$ 0,00</span>
+            <div class="item-info">
+              <h3>{{ item.nome }}</h3>
+              <span class="preco">{{ item.preco | currency: 'BRL' }}</span>
+            </div>
+
+            <div class="qtd">
+              <button (click)="carrinho.alterarQuantidade(item.id, -1)" aria-label="Diminuir">−</button>
+              <span>{{ item.quantidade }}</span>
+              <button (click)="carrinho.alterarQuantidade(item.id, 1)" aria-label="Aumentar">+</button>
+            </div>
+
+            <strong class="subtotal">
+              {{ item.preco * item.quantidade | currency: 'BRL' }}
+            </strong>
+
+            <button class="remover" (click)="carrinho.remover(item.id)">Remover</button>
+          </article>
+        }
+      </section>
+
+      <aside class="resumo">
+        <h2>Resumo</h2>
+        <div class="linha">
+          <span>Subtotal</span>
+          <span>{{ carrinho.subtotal() | currency: 'BRL' }}</span>
         </div>
-
-        <div class="qtd">
-          <button aria-label="Diminuir">−</button>
-          <span>1</span>
-          <button aria-label="Aumentar">+</button>
+        <div class="linha">
+          <span>Frete</span>
+          <span>{{ carrinho.frete() === 0 ? 'Grátis' : (carrinho.frete() | currency: 'BRL') }}</span>
         </div>
-
-        <strong class="subtotal">R$ 0,00</strong>
-
-        <button class="remover">Remover</button>
-      </article>
-    </section>
-
-    <aside class="resumo">
-      <h2>Resumo</h2>
-      <div class="linha">
-        <span>Subtotal</span>
-        <span>R$ 0,00</span>
-      </div>
-      <div class="linha">
-        <span>Frete</span>
-        <span>R$ 0,00</span>
-      </div>
-      <div class="linha total">
-        <span>Total</span>
-        <span>R$ 0,00</span>
-      </div>
-      <button class="btn btn-primario">Finalizar compra</button>
-      <a routerLink="/" class="btn btn-secundario">Continuar comprando</a>
-    </aside>
-  </div>
+        <div class="linha total">
+          <span>Total</span>
+          <span>{{ carrinho.total() | currency: 'BRL' }}</span>
+        </div>
+        <button class="btn btn-primario">Finalizar compra</button>
+        <a routerLink="/" class="btn btn-secundario">Continuar comprando</a>
+      </aside>
+    </div>
+  }
 </main>

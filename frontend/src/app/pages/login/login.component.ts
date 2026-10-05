@@ -14,10 +14,10 @@ import { verify } from 'crypto';
 })
 export class LoginComponent {
 
-  botaoDesabilitado: boolean = true;
-  login: string = '';
+  login: string = '';  
   senha: string = '';
-
+  botaoDesabilitado: boolean = true; 
+  
   constructor(private router: Router) {}
 
   validarFormulario() {
@@ -46,5 +46,4 @@ export class LoginComponent {
       alert('Credenciais inválidas!');
     }
   }
-
 }
