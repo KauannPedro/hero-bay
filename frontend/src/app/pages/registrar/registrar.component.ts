@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-// import { Usuario } from './'; quando o gustavo upar o codigo, terminar de importar o models usuario
+import { Usuario } from '../../models/usuario';
 
-interface Usuario {
-  nome: string;
-  email: string;
-  senha: string;
-} // apagar quando o gustavo upar
+
 @Component({
   imports: [FormsModule, RouterLink],
   selector: 'app-registrar',
@@ -45,6 +41,6 @@ export class RegistrarComponent {
     localStorage.setItem('usuarios', JSON.stringify(usuarios))
     
     alert('Cadastro realizado com sucesso!');
-    this.router.navigate(['/login']); // manda para o login
+    this.router.navigate(['/login']);
   }
 }
