@@ -5,7 +5,6 @@
 
 .topo {
   width: 100%;
-  height: 11vh;
   background-color: #252644;
   display: flex;
   flex-direction: column;
@@ -14,24 +13,25 @@
 
 .topo .top {
   width: 100%;
-  height: 70%;
-  padding: 18px 55px;
+  min-height: 68px;
+  padding: 12px clamp(16px, 3vw, 55px);
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .part-esq {
-    width: 70%;
-    height: 100%;
+    min-width: 0;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 24px;
+    flex: 1;
 
     a {
       width: 12%;
       gap: 7px;
       display: flex;
       align-items: center;
+      white-space: nowrap;
       font-size: 20px;
       color: white;
       font-family: 'plus-jakarta-bold', sans-serif;
@@ -39,13 +39,15 @@
       text-decoration: none;
 
       img {
-        width: 30%;
+        width: 45px;
+        height: auto;
       }
     }
 
     .busca {
-      width: 60%;
-      height: 100%;
+      min-width: 700px;
+      max-width: 720px;
+      height: 45px;
       border: none;
       padding: 0px 25px;
       border-radius: 5px;
@@ -70,6 +72,8 @@
   }
 
   nav {
+    flex-shrink: 0;
+    white-space: nowrap;
     display: flex;
     align-items: center;
     gap: 25px;
@@ -120,17 +124,19 @@
 
 .menu {
   width: 100%;
-  height: 30%;
+  min-height: 40px;
   display: flex;
   align-items: center;
-  padding: 0px 60px;
+  padding: 0 clamp(16px, 3vw, 60px);
 
   nav {
     width: 100%;
-    height: 100%;
     display: flex;
     gap: 25px;
     align-items: center;
+    padding: 12px 0;
+    overflow-x: auto;
+    white-space: nowrap;
 
     a {
       color: white;
