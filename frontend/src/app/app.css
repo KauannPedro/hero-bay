@@ -1,26 +1,10 @@
-header {
-  background: var(--bg);
-  border-bottom: 1px solid var(--borda);
-  padding: 16px 24px;
+:host {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.logo {
-  color: var(--texto);
-  font-size: 20px;
-  font-weight: 700;
-}
-
-nav a {
-  color: var(--texto-suave);
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 14px;
-}
-
-nav a:hover,
-nav a.active {
-  color: var(--roxo-claro);
+app-footer {
+  display: block;
+  margin-top: auto;
 }

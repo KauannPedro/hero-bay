@@ -1,182 +1,75 @@
-* {
-  box-sizing: border-box;
-  margin: 0px;
-}
-
 .topo {
-  width: 100%;
-  background-color: #252644;
-  display: flex;
-  flex-direction: column;
-  border: 0px 0px 0px 10px solid #535d88;
+  border-bottom: 1px solid #dddbd2;
 }
 
-.topo .top {
-  width: 100%;
-  min-height: 68px;
-  padding: 12px clamp(16px, 3vw, 55px);
+.topo-conteudo {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-
-  .part-esq {
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    flex: 1;
-
-    a,
-    span {
-      width: 12%;
-      gap: 7px;
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      font-size: 20px;
-      color: white;
-      font-family: 'plus-jakarta-bold', sans-serif;
-      text-decoration: none;
-
-      img {
-        width: 45px;
-        height: auto;
-      }
-    }
-
-    .set-cursor {
-      cursor: pointer;
-
-      &:hover {
-        color: #8c52ff;
-      }
-    }
-
-    .busca {
-      min-width: 700px;
-      max-width: 720px;
-      height: 45px;
-      border: none;
-      padding: 0px 25px;
-      border-radius: 5px;
-      background-color: #1A1D2E;
-      color: #dbdbdb;
-      font-size: 85%;
-      font-weight: 500;
-      font-family: 'plus-jakarta-medium', sans-serif;
-
-      &:focus {
-        outline: none;
-      }
-
-      &::placeholder {
-        color: #A9A9A9;
-        font-family: 'plus-jakarta-medium', sans-serif;
-        opacity: 100%;
-        font-style: oblique;
-        font-size: 90%;
-      }
-    }
-  }
-
-  nav {
-    flex-shrink: 0;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 25px;
-
-    span {
-      font-size: 13px;
-      color: white;
-      font-family: 'plus-jakarta-medium', sans-serif;
-      display: flex;
-      align-items: center;
-      color: #c7c7c7;
-      transition: 0.2s;
-      text-decoration: none;
-
-    }
-
-    a {
-      font-size: 13px;
-      color: white;
-      font-family: 'plus-jakarta-medium', sans-serif;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      color: #c7c7c7;
-      transition: 0.2s;
-      text-decoration: none;
-
-      img {
-        width: 80%;
-        transition: 0.2s;
-
-        &:hover {
-          color: #8c52ff;
-        }
-      }
-
-      &:hover {
-        color: #8c52ff;
-      }
-    }
-  }
+  min-height: 52px;
 }
 
-.linha {
-  width: 100%;
-  border: 1px solid #2A2D45;
-}
-
-.menu {
-  width: 100%;
-  min-height: 40px;
+.logo {
   display: flex;
   align-items: center;
-  padding: 0 clamp(16px, 3vw, 60px);
+  gap: 8px;
+  font-weight: 700;
+  font-stretch: 112%;
+  font-size: 16px;
+}
 
-  .principal {
-    font-family: 'plus-jakarta-regular', sans-serif;
-    font-size: 12px;
-    span {
-      color: #8c52ff;
-      
-    }
+.logo img {
+  width: 24px;
+  height: 24px;
+}
 
+.navegacao {
+  display: flex;
+  gap: 30px;
+  font-size: 13px;
+  color: #55534b;
+}
+
+.navegacao a:hover {
+  color: #111111;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 13px;
+}
+
+.acoes b {
+  font-weight: 600;
+}
+
+.fraco {
+  color: #55534b;
+}
+
+.sair {
+  background: none;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.sair:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .topo-conteudo {
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
-  nav {
+  .navegacao {
+    order: 3;
     width: 100%;
-    display: flex;
-    gap: 25px;
-    align-items: center;
-    padding: 12px 0;
-    overflow-x: auto;
-    white-space: nowrap;
-
-    a {
-      color: white;
-      font-family: 'plus-jakarta-regular', sans-serif;
-      cursor: pointer;
-      color: #c7c7c7;
-      transition: 0.1s;
-      text-decoration: none;
-      font-size: 12px;
-
-      img {
-        width: 85%;
-        transition: 0.2s;
-
-        &:hover {
-          filter: brightness(0.8);
-        }
-      }
-
-      &:hover {
-        color: #818181;
-      }
-    }
   }
 }

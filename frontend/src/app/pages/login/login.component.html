@@ -1,31 +1,26 @@
-<div class="content-container">
-  <form class="login-card">
-    <h2>Login</h2>
+<main class="container pagina duas-colunas">
+  <div class="coluna">
+    <h1 class="titulo">Entrar.</h1>
+    <p class="texto-apoio">Acompanhe o carrinho e compre mais rápido.</p>
+  </div>
 
-    <div class="form-group">
-      <label for="email">Login</label>
-      <input class="input-simples" id="email" name="email" type="email" placeholder="Digite seu email"
-        (keyup)="validarFormulario()" [(ngModel)]="login" />
+  <form class="formulario">
+    <div class="campo">
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" [(ngModel)]="login" (keyup)="validarFormulario()">
     </div>
 
-    <div class="form-group">
-      <label for="input-senha">Senha</label>
-      <input class="input-simples" id="input-senha" name="input-senha" type="password" placeholder="Digite sua senha"
-        (keyup)="validarFormulario()" [(ngModel)]="senha" />
+    <div class="campo">
+      <label for="senha">Senha</label>
+      <input id="senha" name="senha" type="password" [(ngModel)]="senha" (keyup)="validarFormulario()">
     </div>
 
-    <button class="input-submeter" [disabled]="botaoDesabilitado" (click)="fazerLogin()">
-      Confirmar
-    </button>
-    <div class="inputs-row">
-      <button routerLink="/" class="input-submeter-low">
-        Voltar
-      </button>
+    @if (mensagemErro !== '') {
+      <p class="erro">{{ mensagemErro }}</p>
+    }
 
-      <button routerLink="/registrar" class="input-submeter-low">
-        Registre-se
-      </button>
-    </div>
+    <button class="botao" type="submit" [disabled]="botaoDesabilitado" (click)="fazerLogin()">Entrar</button>
+
+    <p class="depois">Ainda não tem conta? <a class="link" routerLink="/registrar">Criar conta</a></p>
   </form>
-</div>
-
+</main>

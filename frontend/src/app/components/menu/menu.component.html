@@ -1,57 +1,29 @@
 <header class="topo">
-  <div class="top">
-    <div class="part-esq">
-      @if (usuario() === 'admin') {
-      <span><img src="images/logo-hero-bay.png">Hero bay</span>
-      } @else {
-      <a routerLink="/"><img src="images/logo-hero-bay.png">Hero bay</a>
-      <input class="busca" type="text" placeholder="Buscar placa de videos, teclados, monitores e muito mais...">
-      }
-    </div>
-    @if (!usuario() ) {
-    <nav>
-      <a routerLink="/login">Entrar</a>
-      <a routerLink="/contato">Contato</a>
-      <a routerLink="/sobre">Sobre</a>
-    </nav>
-    } @else if (usuario()) {
-    @if (usuario() === 'admin') {
-    <nav>
-      <a class="set-cursor" (click)="logout()">Sair</a>
-    </nav>
+  <div class="container topo-conteudo">
+    @if (usuarioLogado() === 'admin') {
+      <span class="logo"><img src="images/logo-hero-bay.png" alt="Hero Bay">Hero Bay</span>
+      <div class="acoes">
+        <span class="fraco">Administrador</span>
+        <button class="sair" (click)="sair()">Sair</button>
+      </div>
     } @else {
-    <nav>
-      <span>Bem-vindo(a) {{usuario()}}</span>
-      <a routerLink="/carrinho"><img src="images/carrinho.svg" alt="Carrinho"></a>
-      <a routerLink="/contato">Contato</a>
-      <a routerLink="/sobre">Sobre</a>
-      <a (click)="logout()">Sair</a>
-    </nav>
+      <a class="logo" routerLink="/"><img src="images/logo-hero-bay.png" alt="Hero Bay">Hero Bay</a>
+
+      <nav class="navegacao">
+        @for (item of itensMenu; track item) {
+          <a [routerLink]="item.link">{{ item.label }}</a>
+        }
+      </nav>
+
+      <div class="acoes">
+        @if (usuarioLogado() === '') {
+          <a routerLink="/login">Entrar</a>
+        } @else {
+          <span class="fraco">Olá, {{ usuarioLogado() }}</span>
+          <button class="sair" (click)="sair()">Sair</button>
+        }
+        <a routerLink="/carrinho"><b>Carrinho</b> ({{ itensNoCarrinho() }})</a>
+      </div>
     }
-
-    }
-
   </div>
-
-  <div class="linha"></div>
-  @if (usuario() === 'admin') {
-  <div class="menu">
-    <span class="principal">Bem vindo(a): <span>{{usuario()}}</span></span>
-  </div>
-  <div class="linha"></div>
-  } @else {
-    <div class="menu">
-    <nav>
-      <a routerLink="/">Todos os Produtos</a>
-      <a routerLink="/categorias/monitores">Hardware</a>
-      <a routerLink="/categorias/perifericos">Periféricos</a>
-      <a routerLink="/categorias/monitores">Monitores</a>
-      <a routerLink="/categorias/notebooks">Notebooks</a>
-      <a routerLink="/categorias/mouses">Gamer</a>
-      <a routerLink="/categorias/ofertas">Ofertas</a>
-    </nav>
-  </div>
-  <div class="linha"></div>
-  }
-
 </header>

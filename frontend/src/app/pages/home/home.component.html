@@ -1,107 +1,48 @@
-<main class="container-home">
-    <section class="container-anuncio">
-        <div class="set-1">
-            <div class="set-nova-linha">
-                <p>Nova Linha 2026</p>
-            </div>
-            <h1 class="text-white-info">Monte o <span class="text-purple">setup</span><br>dos seus sonhos</h1>
-            <p class="text-info">Placas de video, processadores, teclados e monitores das<br>melhores marcas, com ate
-                20% de desconto e frete <br> rapido.</p>
+<section class="lancamento">
+  <div class="container">
+    <h1 class="lancamento-titulo">Hero Bay One</h1>
+    <p class="lancamento-sub">O primeiro PC montado pela Hero Bay. Chega em novembro.</p>
+    <p class="lancamento-specs">{{ heroBayOne.descricao }}</p>
+    <p class="lancamento-preco">Pré-venda a partir de <b>{{ heroBayOne.preco | currency: 'BRL' }}</b> ou 12x de {{ heroBayOne.preco / 12 | currency: 'BRL' }}</p>
+    <div class="lancamento-links">
+      <button class="link" (click)="carrinho.adicionar(heroBayOne)">Reservar o meu</button>
+      <a class="link" href="#produtos">Ver produtos</a>
+    </div>
+    @if (quantidadeNoCarrinho(heroBayOne) > 0) {
+      <p class="etiqueta">{{ quantidadeNoCarrinho(heroBayOne) }} no carrinho</p>
+    }
+    <img class="lancamento-foto" src="images/produtos/hero-bay-one.jpg" alt="Hero Bay One">
+    <div class="lancamento-rodape">
+      <span>Montado e testado à mão em São Paulo</span>
+      <span>3 anos de garantia</span>
+      <span>Frete grátis</span>
+    </div>
+  </div>
+</section>
 
-            <div class="set-btn">
-                <a routerLink="/produtos" class="btn-purple">Ver ofertas</a>
-                <a routerLink="/montarPC" class="btn-black">Montar meu PC</a>
-            </div>
-            <div class="set-info">
-                <h3 class="span-text">+2.000<br><span class="text-prdt">produtos</span></h3>
-                <h3 class="span-text">12x<br><span class="text-prdt">sem juros</span></h3>
-                <h3 class="span-text">24h<br><span class="text-prdt">envio</span></h3>
-            </div>
+<section class="container categorias">
+  @for (categoria of categorias; track categoria) {
+    <button [class.ativa]="categoriaSelecionada === categoria" (click)="escolherCategoria(categoria)">{{ categoria }}</button>
+  }
+</section>
+
+<section class="container vitrine" id="produtos">
+  @for (produto of produtos; track produto) {
+    @if (categoriaSelecionada === 'todos' || produto.categoria === categoriaSelecionada) {
+      <div class="produto">
+        <img [src]="produto.imagem" [alt]="produto.nome">
+        <div class="produto-info">
+          <div>
+            <p class="produto-nome">{{ produto.nome }}</p>
+            <p class="produto-preco">{{ produto.preco | currency: 'BRL' }}</p>
+            @if (quantidadeNoCarrinho(produto) > 0) {
+              <span class="etiqueta">{{ quantidadeNoCarrinho(produto) }} no carrinho</span>
+            }
+            <p class="produto-spec">{{ produto.descricao }}</p>
+          </div>
+          <button class="mais" (click)="carrinho.adicionar(produto)">+</button>
         </div>
-
-        <div class="set-2">
-            <img src="images/computador.svg">
-        </div>
-    </section>
-
-    <section class="container-categorias">
-        <div class="set-categorias">
-            <h2>Categorias</h2>
-        </div>
-
-        <div class="set-content">
-            <div class="card-categorias">
-                <a>
-                <img src="images/cpu.svg">
-                <span>Processadores</span>
-                </a>
-            </div>
-            <div class="card-categorias">
-                <a>
-                    <img src="images/teclado.svg" alt="">
-                    <span>Teclado</span>
-                </a>
-            </div>
-            <div class="card-categorias">
-                <a>
-                    <img src="images/headset.svg">
-                    <span>Headsets</span>
-                </a>
-
-
-            </div>
-            <div class="card-categorias">
-                <a>
-                    <img src="images/monitor.svg">
-                    <span>Monitores</span>
-                </a>
-            </div>
-            <div class="card-categorias">
-                <a>
-                    <img src="images/mouse.svg">
-                    <span>Mouse</span>
-                </a>
-            </div>
-            <div class="card-categorias">
-                <a>
-                    <img src="images/gpu.svg">
-                    <span>Placas de Video</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="container-prdt">
-        <div class="set-prdt">
-            <h2>Produtos em destaque</h2>
-        </div>
-
-        <div class="set-content">
-            <a routerLink="" class="set-card">
-                <img src="images/rtx-4060.png" alt="">
-                <p>Placa de video RTX 4060 8GB<br><span>R$ 2.199,00</span></p>
-                <a routerLink="">Adicionar ao carrinho</a>
-            </a>
-            <a routerLink="" class="set-card">
-                <img src="images/teclado-rgb.png" alt="">
-                <p>Teclado mecanico RGB<br><span>R$ 349,00</span></p>
-                <a routerLink="">Adicionar ao carrinho</a>
-            </a>
-            <a routerLink="" class="set-card">
-                <img src="images/mouse-gamer.png" alt="">
-                <p>Mouse gamer 16000 DPI<br><span>R$ 189,90</span></p>
-                <a routerLink="">Adicionar ao carrinho</a>
-            </a>
-            <a routerLink="" class="set-card">
-                <img src="images/monitor-165hz.png" alt="">
-                <p>Monitor 27" 165Hz<br><span>R$ 1.299,00</span></p>
-                <a routerLink="" class="set-adic">Adicionar ao carrinho</a>
-            </a>
-            <a routerLink="" class="set-card">
-                <img src="images/headset-sem-fio.png" alt="">
-                <p>Headset sem fio 7.1<br><span>R$ 429,00</span></p>
-                <a routerLink="">Adicionar ao carrinho</a>
-            </a>
-        </div>
-    </section>
-</main>
+      </div>
+    }
+  }
+</section>
