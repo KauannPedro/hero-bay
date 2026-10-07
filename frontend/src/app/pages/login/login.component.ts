@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { verify } from 'crypto';
-import { Usuario } from '../../models/usuario'; 
-
+import { Usuario } from '../../models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +11,11 @@ import { Usuario } from '../../models/usuario';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
-  login: string = '';  
+  login: string = '';
   senha: string = '';
-  botaoDesabilitado: boolean = true; 
-  
+  botaoDesabilitado: boolean = true;
+  mensagemErro: string = '';
+
   constructor(private router: Router) {}
 
   validarFormulario() {
@@ -29,21 +27,26 @@ export class LoginComponent {
   }
 
   fazerLogin() {
-    const salvos = localStorage.getItem('usuarios');
-    const usuarios = salvos ? JSON.parse(salvos) : [];
-    
-    const encontrado = usuarios.find((verif: Usuario) => verif.email === this.login && verif.senha === this.senha);
-
-    if (this.login === "admin@email.com" && this.senha === "123") {
-      alert("Bem-vindo(a) admin!");
+    if (this.login === 'admin@email.com' && this.senha === '123') {
       localStorage.setItem('usuario', 'admin');
       this.router.navigate(['/admin']);
-    } else if (encontrado){
-      localStorage.setItem('usuario', encontrado.nome);
-      this.router.navigate(['/']);
+      return;
     }
-    else {
-      alert('Credenciais inválidas!');
+
+    let usuarios: Usuario[] = [];
+    const salvos = localStorage.getItem('usuarios');
+    if (salvos) {
+      usuarios = JSON.parse(salvos);
     }
+
+    for (let usuario of usuarios) {
+      if (usuario.email === this.login && usuario.senha === this.senha) {
+        localStorage.setItem('usuario', usuario.nome);
+        this.router.navigate(['/']);
+        return;
+      }
+    }
+
+    this.mensagemErro = 'E-mail ou senha incorretos.';
   }
 }

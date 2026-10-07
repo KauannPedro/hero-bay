@@ -1,54 +1,70 @@
-<main class="container">
-  <h1>Meu carrinho</h1>
-
-  @if (carrinho.itens().length === 0) {
-    <div class="vazio">
-      <p>Seu carrinho está vazio.</p>
-      <a routerLink="/" class="btn btn-primario">Ver ofertas</a>
+<main class="container pagina">
+  @if (pedidoFinalizado) {
+    <div class="duas-colunas">
+      <div class="coluna">
+        <h1 class="titulo">Pedido recebido.</h1>
+        <p class="texto-apoio">Obrigado pela compra. Separamos seus produtos e você recebe o código de rastreio assim que o pedido sair.</p>
+        <p class="voltar"><a class="link" routerLink="/">Voltar para a loja</a></p>
+      </div>
+      <aside class="resumo">
+        @for (item of itensPedido; track item) {
+          <div class="resumo-linha">
+            <span>{{ item.quantidade }}x {{ item.produto.nome }}</span>
+            <span>{{ item.produto.preco * item.quantidade | currency: 'BRL' }}</span>
+          </div>
+        }
+        <div class="resumo-linha resumo-total">
+          <span>Total</span>
+          <span>{{ totalPedido | currency: 'BRL' }}</span>
+        </div>
+      </aside>
     </div>
+  } @else if (carrinho.itens.length === 0) {
+    <h1 class="titulo">Carrinho (0)</h1>
+    <p class="texto-apoio">Seu carrinho está vazio.</p>
+    <p class="voltar"><a class="link" routerLink="/">Ver produtos</a></p>
   } @else {
-    <div class="layout">
-      <section class="lista">
-        @for (item of carrinho.itens(); track item.id) {
+    <h1 class="titulo">Carrinho ({{ carrinho.contarItens() }})</h1>
+
+    <div class="duas-colunas lista-e-resumo">
+      <section class="coluna">
+        @for (item of carrinho.itens; track item) {
           <article class="item">
-            <div class="item-img">imagem do produto</div>
-
+            <img [src]="item.produto.imagem" [alt]="item.produto.nome">
             <div class="item-info">
-              <h3>{{ item.nome }}</h3>
-              <span class="preco">{{ item.preco | currency: 'BRL' }}</span>
+              <p class="item-nome">{{ item.produto.nome }}</p>
+              <p class="item-spec">{{ item.produto.descricao }}</p>
             </div>
-
-            <div class="qtd">
-              <button (click)="carrinho.alterarQuantidade(item.id, -1)" aria-label="Diminuir">−</button>
-              <span>{{ item.quantidade }}</span>
-              <button (click)="carrinho.alterarQuantidade(item.id, 1)" aria-label="Aumentar">+</button>
+            <div class="quantidade">
+              <button (click)="carrinho.diminuir(item)" aria-label="Diminuir quantidade">−</button>
+              <span class="mono">{{ item.quantidade }}</span>
+              <button (click)="carrinho.aumentar(item)" aria-label="Aumentar quantidade">+</button>
             </div>
-
-            <strong class="subtotal">
-              {{ item.preco * item.quantidade | currency: 'BRL' }}
-            </strong>
-
-            <button class="remover" (click)="carrinho.remover(item.id)">Remover</button>
+            <span class="item-total">{{ item.produto.preco * item.quantidade | currency: 'BRL' }}</span>
+            <button class="remover" (click)="carrinho.remover(item)">remover</button>
           </article>
         }
       </section>
 
       <aside class="resumo">
-        <h2>Resumo</h2>
-        <div class="linha">
+        <div class="resumo-linha">
           <span>Subtotal</span>
-          <span>{{ carrinho.subtotal() | currency: 'BRL' }}</span>
+          <span>{{ carrinho.calcularSubtotal() | currency: 'BRL' }}</span>
         </div>
-        <div class="linha">
+        <div class="resumo-linha">
           <span>Frete</span>
-          <span>{{ carrinho.frete() === 0 ? 'Grátis' : (carrinho.frete() | currency: 'BRL') }}</span>
+          @if (carrinho.calcularFrete() === 0) {
+            <span>grátis</span>
+          } @else {
+            <span>{{ carrinho.calcularFrete() | currency: 'BRL' }}</span>
+          }
         </div>
-        <div class="linha total">
+        <div class="resumo-linha resumo-total">
           <span>Total</span>
-          <span>{{ carrinho.total() | currency: 'BRL' }}</span>
+          <span>{{ carrinho.calcularTotal() | currency: 'BRL' }}</span>
         </div>
-        <button class="btn btn-primario">Finalizar compra</button>
-        <a routerLink="/" class="btn btn-secundario">Continuar comprando</a>
+        <button class="botao" (click)="finalizarCompra()">Finalizar compra</button>
+        <a class="link" routerLink="/">Continuar comprando</a>
       </aside>
     </div>
   }

@@ -1,185 +1,132 @@
-.painel-admin {
-    max-width: 1100px;
-    min-height: 100%;
-    margin: 0 auto;
-    padding: 40px 20px;
-    color: var(--texto);
+.abas {
+  display: flex;
+  gap: 30px;
+  border-bottom: 1px solid #dddbd2;
+  margin: 28px 0 26px;
 }
 
-.cabecalho-admin {
-    margin-bottom: 28px;
+.abas button {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #f5f4ef;
+  padding: 10px 0;
+  color: #8a8576;
+  cursor: pointer;
 }
 
-.cabecalho-admin h1 {
-    margin-bottom: 8px;
-    font-family: 'plus-jakarta-bold', sans-serif;
-    font-size: 28px;
+.abas button:hover {
+  color: #111111;
 }
 
-.cabecalho-admin p {
-    color: var(--texto-suave);
-    line-height: 1.6;
+.abas .ativa {
+  color: #111111;
+  border-bottom-color: #111111;
+  font-weight: 600;
 }
 
-.menu-admin {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
+.formulario {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
 }
 
-.menu-admin button {
-    padding: 12px 24px;
-    background-color: var(--card);
-    color: var(--texto);
-    border: 1px solid var(--borda);
-    border-radius: 10px;
-    font: inherit;
-    font-weight: 600;
-    cursor: pointer;
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease;
+.formulario .campo {
+  flex: 1;
+  margin-bottom: 0;
 }
 
-.menu-admin button:hover {
-    background-color: var(--card-2);
-    border-color: var(--roxo-claro);
+.formulario .campo-pequeno {
+  flex: none;
+  width: 150px;
 }
 
-.menu-admin button.ativo {
-    background-color: var(--roxo);
-    border-color: var(--roxo);
-    color: #ffffff;
+.formulario .link {
+  margin-bottom: 15px;
 }
 
-.menu-admin button:focus-visible {
-    outline: 2px solid var(--roxo-claro);
-    outline-offset: 4px;
+.erro {
+  margin: 12px 0 0;
 }
 
-.secao-admin {
-    padding: 24px;
-    background-color: var(--card);
-    border: 1px solid var(--borda);
-    border-radius: 12px;
+.rolagem {
+  overflow-x: auto;
 }
 
-.secao-admin h2 {
-    margin-bottom: 8px;
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 26px;
+  font-size: 14px;
 }
 
-.secao-admin p {
-    color: var(--texto-suave);
-    line-height: 1.6;
-    margin-bottom: 20px;
+.tabela th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 12px 10px 0;
+  border-bottom: 2px solid #111111;
 }
 
-.tabela-container {
-    overflow-x: auto;
+.tabela td {
+  padding: 14px 12px 14px 0;
+  border-bottom: 1px solid #dddbd2;
 }
 
-.tabela-produtos {
-    width: 100%;
-    border-collapse: collapse;
+.acao {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #111111;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 16px;
+  cursor: pointer;
 }
 
-.tabela-produtos caption {
-    text-align: left;
-    font-weight: 600;
-    padding-bottom: 12px;
+.fraca {
+  color: #8a8576;
+  border-bottom-color: #cfcdc3;
 }
 
-.tabela-produtos th,
-.tabela-produtos td {
-    padding: 16px;
-    text-align: left;
-    border-bottom: 1px solid var(--borda);
+.perigo {
+  color: #b42318;
+  border-bottom-color: #b42318;
+  font-weight: 700;
 }
 
-.tabela-produtos th {
-    background-color: var(--card-2);
-    color: var(--roxo-claro);
-    font-size: 14px;
+.nota {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #8a8576;
 }
 
-.tabela-produtos tbody tr:hover {
-    background-color: var(--card-2);
+.vazio {
+  margin-top: 28px;
+  color: #55534b;
 }
 
-.tabela-produtos tbody tr:last-child td {
-    border-bottom: none;
+.atividades {
+  list-style: none;
+  border-top: 2px solid #111111;
 }
 
-.form-produto {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 16px;
-    padding: 20px;
-    margin-bottom: 24px;
-    background-color: var(--bg);
-    border: 1px solid var(--borda);
-    border-radius: 10px;
+.atividades li {
+  padding: 12px 0;
+  border-bottom: 1px solid #dddbd2;
+  font-size: 14px;
 }
 
-.campo-produto {
-    display: flex;
+@media (max-width: 800px) {
+  .formulario {
     flex-direction: column;
-    gap: 8px;
-    min-width: 0;
-}
+    align-items: stretch;
+  }
 
-.campo-produto label {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.campo-produto input {
+  .formulario .campo-pequeno {
     width: 100%;
-    padding: 12px;
-    background-color: var(--card);
-    color: var(--texto);
-    border: 1px solid var(--borda);
-    border-radius: 8px;
-    font: inherit;
-}
+  }
 
-.campo-produto input:focus {
-    outline: 2px solid var(--roxo-claro);
-    outline-offset: 2px;
-}
-
-.form-produto .mensagem-erro {
-    grid-column: 1 / -1;
-    color: #fca5a5;
-    margin: 0;
-}
-
-.botao-adicionar {
-    grid-column: 1 / -1;
-    justify-self: start;
-    padding: 12px 20px;
-    background-color: var(--roxo);
-    color: #ffffff;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    font: inherit;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.botao-adicionar:hover {
-    border-color: var(--roxo-claro);
-    background-color: var(--card-2);
-}
-
-.botao-adicionar:focus-visible {
-    outline: 2px solid var(--roxo-claro);
-    outline-offset: 3px;
-}
-
-@media (max-width: 700px) {
-    .form-produto {
-        grid-template-columns: 1fr;
-    }
+  .acao {
+    display: block;
+    margin: 0 0 6px;
+  }
 }
